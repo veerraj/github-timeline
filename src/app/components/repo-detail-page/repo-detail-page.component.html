@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="card card-body">
+      <div class="row">
+        <div class="col-5 col-sm-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item " style="cursor: pointer;"><a href="#" class="title" (click)="backToHome()"
+                >{{dataDetail?.owner.login}}</a></li>
+              <li class="breadcrumb-item active" aria-current="page"> {{dataDetail?.name}}</li>
+             
+            </ol>
+        </nav>
+        </div>
+        <div class="col-7 col-sm">
+          <div class=" header_cls">
+            <button class="btn border"><i class="fa fa-star" aria-hidden="true"></i>
+              Star |  {{ dataDetail?.stargazers_count }} </button>
+              <button class="btn border m-2"><i class="fa fa-eye" aria-hidden="true"></i>
+               Watch | {{ dataDetail?.watchers_count }}</button>
+              <span class="text-muted " style="min-width: 190px;">Created At : {{ dataDetail?.created_at | date }}</span>
+          </div>
+   
+        </div>
+      </div>
+   
+        <div class="row main_row">
+          <div class="col-9 section1">
+            <div class="card card-body">
+              <div class="row">
+                <div class="d-flex w-100 justify-content-between">
+                   <button class="btn border"><i class="fa fa-code-fork" aria-hidden="true"></i>
+                    {{dataDetail?.default_branch}}</button>
+                    <button class="btn btn-info text-white" (click)="downloadCode()"><i class="fa fa-download"></i> Code</button>
+                </div>
+               
+              </div>
+              <div class="row">
+                <div class="justify-content-center d-flex">
+                  <img src="assets/images/Octocat.png" alt="" height="200px" width="200px">
+                </div>
+                <span class="text-muted text-align-center d-flex justify-content-center">Loading...</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 section2">
+               <div class="card card-body">
+                 <div>
+                    <h4>About</h4>
+                    <div class="text-muted">
+                      <i *ngIf="!dataDetail?.description">No description, website, or topics provided.</i>
+                      <i *ngIf="dataDetail?.description">{{dataDetail?.description}}</i>
+                    </div>
+                 </div>
+                 <div class="mt-2">
+                  <h4>Language</h4>
+                  <div class="text-muted">
+                    <i>{{ dataDetail?.language }}</i>
+                  </div>
+               </div>
+                 
+               </div>
+          </div>
+        </div>
+    </div>
+</div>

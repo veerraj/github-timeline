@@ -1,0 +1,31 @@
+<br>
+<div class="container" *ngIf="user">
+  <h3 class="page-heading mb-3">User Detail</h3>
+<div id="profile">
+    <div class="card card-body mb-3">
+      <div class="row" >
+        <div class="col-md-3">
+          <!-- <pre>{{user|json}}</pre> -->
+          <div class="responsive_img"> <img class="img-fluid mb-2" src="{{user?.avatar_url}}"></div>
+          <p>{{user?.bio}}</p>
+          <a href="{{user?.html_url}}" class="btn btn-primary btn-block mb-4" target="_blank">View Profile</a>
+        </div>
+        <div class="col-md-9">
+            <span class="badge m-2 alert-primary">Public Repositories: {{ user?.public_repos }}</span>
+            <span class="badge m-2 alert-secondary">Public Gists: {{ user?.public_gists }}</span>
+            <span class="badge m-2 alert-success">Followers: {{ user?.followers }}</span>
+            <span class="badge m-2 alert-info">Following: {{ user?.following }}</span>
+          <br>
+          <ul class="list-group">
+            <li class="list-group-item"><strong>Name: </strong> {{user?.name}}</li>
+            <li class="list-group-item"><strong>Company: </strong> {{user?.company}}</li>
+            <li class="list-group-item"><strong>Website/Blog: </strong> <a href="">{{ user?.blog }}</a></li>
+            <li class="list-group-item"><strong>Location: </strong> {{ user?.location }}</li>
+            <li class="list-group-item"><strong>Member Since: </strong> {{ user?.created_at | date}}</li>
+          </ul>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

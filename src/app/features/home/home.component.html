@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="container searchContainer">
+    <div class="search card card-body">
+        <!-- <h1>Search GitHub Users</h1> -->
+        <p class="lead">Enter a username to search for user profile and repositories...</p>
+        <div class="row w-100">
+          <div class="col-9">
+            <input type="text" id="searchUser"
+            [(ngModel)]="username"
+             class="form-control" placeholder="GitHub Username..">
+          </div>
+          <div class="col-3">
+           <button class="btn btn-primary" (click)="searchUser()">Search</button>
+          </div>
+        </div>
+   
+    </div>
+</div>
+
+
+
+<app-usercard [user]="userObj"></app-usercard>
+
+<app-repocard [data]="repoData"></app-repocard>
+<app-footer></app-footer>

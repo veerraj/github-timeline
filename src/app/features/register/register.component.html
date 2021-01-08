@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="card register-card">
+      <div class="row ">
+        <div class="col-md-5 section1">
+          <img src="assets/images/login.png" alt="login" class="img">
+        </div>
+        <div class="col-md-7">
+          <div class="card-body">
+            <div class="brand-wrapper">
+              <img src="assets/images/logo.png" alt="logo" class="logo">
+            </div>
+            <p class="register-card-description">Register into your account</p>
+            <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+                <!-- <div class="form-group">
+                    <label for="username" class="sr-only">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username"
+                    formControlName="username">
+                    <div *ngIf="isSubmitted && registerForm.controls.username.errors?.required" class="invalidDiv">
+                        <div>username is required</div>
+                    </div>
+                  </div> -->
+                <div class="form-group">
+                  <label for="email" class="sr-only">Email</label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="Email address"
+                  formControlName="email">
+                  <div *ngIf="isSubmitted && registerForm.controls.email.errors?.required" class="invalidDiv">
+                    <div>email is required</div>
+                </div>
+                <div *ngIf="isSubmitted && registerForm.controls.email.errors?.email" class="invalidDiv">
+                    <div>email should be correct</div>
+                </div>
+                </div>
+                <div class="form-group mb-4">
+                  <label for="password" class="sr-only">Password</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="***********"
+                  formControlName="password">
+                  <div *ngIf="isSubmitted && registerForm.controls.password.errors?.required" class="invalidDiv">
+                    <div>password is required</div>
+                  </div>
+                  <div *ngIf="isSubmitted && registerForm.controls.password.errors?.pattern" class="invalidDiv">
+                    <div>password should be strong</div>
+                    <ul>
+                        <li>At least 8 characters in length</li>
+                        <li>At least one uppercase,number and special character</li>
+                    </ul>
+                  </div>
+                </div>
+                <input  class="btn btn-block register-btn mb-4" type="submit" value="Register">
+              </form>
+              <p class="register-card-footer-text">Don't have an account? <a  class="text-reset"
+                [routerLink]="[ '/login']">login here</a></p>
+                <div *ngIf="isLoading" class="spinner-border text-primary mb-1" style="width: 4rem; height: 4rem;" role="status">
+                    <span class="sr-only"></span>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
